@@ -10,7 +10,7 @@ The core project is an **MNIST handwritten digit classifier**, trained and quant
 
 ---
 
-## 🚩 Objectives
+##  Objectives
 - Train and quantize a neural network for MNIST digit recognition  
 - Optimize to fit ≤16 KB SRAM  
 - Simulate deployment on SiFive FE310-G002 (no hardware needed)  
@@ -18,7 +18,7 @@ The core project is an **MNIST handwritten digit classifier**, trained and quant
 
 ---
 
-## 📚 Course Modules (Highlights)
+## Course Modules (Highlights)
 - Edge AI intro & VSDSquadron board overview  
 - ML basics – regression, gradient descent, visualization  
 - Classification – KNN, SVM, and embedded inference  
@@ -29,7 +29,7 @@ The core project is an **MNIST handwritten digit classifier**, trained and quant
 
 ---
 
-## 🛠 Hardware & Software
+##  Hardware & Software
 **Target Hardware (simulated):**  
 - SiFive FE310-G002 (RV32IMAC, 320 MHz, 16 KB I-cache, 16 KB SRAM, QSPI Flash)  
 
@@ -41,7 +41,7 @@ The core project is an **MNIST handwritten digit classifier**, trained and quant
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 ```
 ├── Datasheets/
 │   ├── 50_Startups-*.csv
@@ -82,3 +82,38 @@ The core project is an **MNIST handwritten digit classifier**, trained and quant
 │
 └── README.md
 ```
+---
+
+## Model Details
+
+Input: 12×12 grayscale (downsized MNIST 28×28)
+Hidden Layers: 2 × Dense (64 neurons, LeakyReLU)
+Output: 10 neurons (digits 0–9)
+Quantization: 8-bit, size ≈ 17 KB
+Inference: Integer-only ops (ReLU + FC)
+
+---
+
+## Key Learnings
+
+Built complete Edge AI pipeline without physical hardware
+Quantized NN to fit ≤16 KB SRAM
+Bare-metal RISC-V programming concepts
+Preprocessing & UART image pipeline
+Bridged Python ML ↔ Embedded C workflows
+
+---
+
+## Acknowledgments
+
+VSD – course & mentorship
+SiFive – FE310-G002 docs
+TensorFlow Lite – quantization tools
+
+---
+
+## Status
+
+Compiles cleanly (zero errors/warnings)
+No hardware test (simulation only)
+Still under development
